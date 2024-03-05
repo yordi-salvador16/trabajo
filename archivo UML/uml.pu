@@ -1,0 +1,45 @@
+
+@startuml
+
+entity Usuario {
+    + id
+    --
+    nombre
+    email
+}
+
+entity Libro {
+    + id
+    --
+    titulo
+    anio_publicacion
+}
+
+entity Resena {
+    + id
+    --
+    calificacion
+    comentario
+}
+
+entity Autor {
+    + id
+    --
+    nombre
+}
+
+entity Categoria {
+    + id
+    --
+    nombre
+}
+
+Usuario "1" -- "N" Libro : reserva
+Usuario "1" -- "N" Resena : deja
+Libro "1" -- "1" Autor : pertenece a
+Libro "1" -- "N" Resena : tiene
+Libro "N" -- "N" Categoria : clasificado en
+Autor "1" -- "N" Libro : tiene
+Categoria "1" -- "N" Libro : tiene
+
+@enduml
